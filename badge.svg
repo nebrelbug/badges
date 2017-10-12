@@ -1,7 +1,4 @@
-{% set leftWidth = left.length * 10 %}
-{% set rightWidth = right.length * 13.5 %}
-{% set totalWidth = leftWidth + rightWidth - 10 %}
-<svg xmlns="http://www.w3.org/2000/svg" width="{{ totalWidth }}" height="18">
+<svg xmlns="http://www.w3.org/2000/svg" width="{{= widths[0]+ widths[1]}}" height="18">
   <linearGradient id="smooth" x2="0" y2="100%">
     <stop offset="0"  stop-color="#fff" stop-opacity=".7"/>
     <stop offset=".1" stop-color="#aaa" stop-opacity=".1"/>
@@ -9,20 +6,20 @@
     <stop offset="1"  stop-color="#000" stop-opacity=".5"/>
   </linearGradient>
 
-  <mask id="round">
-    <rect width="{{ totalWidth }}" height="18" rx="4" fill="#fff"/>
-  </mask>
+  <clipPath id="round">
+    <rect width="{{= widths[0]+ widths[1]}}" height="18" rx="4" fill="#fff"/>
+  </clipPath>
 
-  <g mask="url(#round)">
-    <rect width="{{ leftWidth }}" height="18" fill="#555"/>
-    <rect x="{{ leftWidth }}" width="{{ rightWidth }}" height="18" fill="{{ color }}"/>
-    <rect width="{{ totalWidth }}" height="18" fill="url(#smooth)"/>
+  <g clip-path="url(#round)">
+    <rect width="{{= widths[0]}}" height="18" fill="{{= escapeXml( colorA||"#555")}}"/>
+    <rect x="{{= widths[0]}}" width="{{= widths[1]}}" height="18" fill="{{= escapeXml( colorB||"#4c1")}}"/>
+    <rect width="{{= widths[0]+ widths[1]}}" height="18" fill="url(#smooth)"/>
   </g>
 
-  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="12">
-    <text x="{{ leftWidth /2+1 }}" y="14" fill="#010101" fill-opacity=".3">{{ left }}</text>
-    <text x="{{ leftWidth /2+1 }}" y="13">{{ left }}</text>
-    <text x="{{ leftWidth + rightWidth /2.5-1 }}" y="14" fill="#010101" fill-opacity=".3">{{ right }}</text>
-    <text x="{{ leftWidth + rightWidth /2.5-1 }}" y="13">{{ right }}</text>
+  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
+    <text x="{{=( widths[0]/2+1)*10}}" y="140" fill="#010101" fill-opacity=".3" transform="scale(0.1)">{{= escapeXml( text[0])}}</text>
+    <text x="{{=( widths[0]/2+1)*10}}" y="130" transform="scale(0.1)">{{= escapeXml( text[0])}}</text>
+    <text x="{{=( widths[0]+ widths[1]/2-1)*10}}" y="140" fill="#010101" fill-opacity=".3" transform="scale(0.1)">{{= escapeXml( text[1])}}</text>
+    <text x="{{=( widths[0]+ widths[1]/2-1)*10}}" y="130" transform="scale(0.1)">{{= escapeXml( text[1])}}</text>
   </g>
 </svg>

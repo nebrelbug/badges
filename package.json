@@ -1,7 +1,7 @@
 {
   "name": "nodejs-badges",
   "version": "1.0.0",
-  "description": "",
+  "description": "![badge](https://img.shields.io/badge/this%20is-a%20cool%20badge-green.svg)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,15 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.12.3",
+    "pdfkit": "^0.8.3",
     "swig": "^1.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odino/nodejs-badges.git"
+  },
+  "bugs": {
+    "url": "https://github.com/odino/nodejs-badges/issues"
+  },
+  "homepage": "https://github.com/odino/nodejs-badges#readme"
 }
