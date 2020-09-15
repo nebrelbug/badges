@@ -14,9 +14,3 @@ Build the container with `docker build -t badges .`.
 ## Running
 
 Just `npm install` and then run the container with `docker run -ti -p 3000:3000 badges`.
-
-## NodeJS?
-
-Okok, I lied, the code runs on IOjs.
-
-But hey, [it won't take long](http://www.infoworld.com/article/2923081/javascript/reunited-io-js-rejoins-with-node-js.html) ;-)
