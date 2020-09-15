@@ -9,8 +9,8 @@ This is the code from my post "[Generating badges / shields with NodeJS](http://
 
 ## Installation
 
-Build the container with `docker build -t badges .`.
+`npm install`
 
 ## Running
 
-Just `npm install` and then run the container with `docker run -ti -p 3000:3000 badges`.
+`node index.js`
